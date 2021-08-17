@@ -22,7 +22,7 @@ const App = () => {
 
   useEffect(() => {
     fetchItems();
-  }, [query]);
+  }, [query, fetchItems]);
   return (
     <div className="container">
       <Header />

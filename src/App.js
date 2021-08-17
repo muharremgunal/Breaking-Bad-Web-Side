@@ -10,19 +10,19 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
 
-  const fetchItems = async () => {
-    const result = await axios(
-      `https://www.breakingbadapi.com/api/characters?name=${query}`
-    );
-
-    console.log(result.data);
-    setItems(result.data);
-    setIsLoading(false);
-  };
-
   useEffect(() => {
+    const fetchItems = async () => {
+      const result = await axios(
+        `https://www.breakingbadapi.com/api/characters?name=${query}`
+      );
+
+      console.log(result.data);
+      setItems(result.data);
+      setIsLoading(false);
+    };
+
     fetchItems();
-  }, [query, fetchItems]);
+  }, [query]);
   return (
     <div className="container">
       <Header />
